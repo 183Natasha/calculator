@@ -45,6 +45,8 @@ body {
   height: 100px;
   order: -5;
   background: gray;
+  padding: 20px;
+  text-align: end;
 }
 
 .item0 {
