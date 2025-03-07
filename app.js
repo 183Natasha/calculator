@@ -4,7 +4,7 @@ let calculator = document.getElementById('calculator');
 let display = document.getElementById('display');
 
 display.innerHTML = "0"
-display.value= ' '
+display.value= ''
 
 
 let currentInput = '';
@@ -15,20 +15,35 @@ calculator.addEventListener('click', function (event) {
 // console.log(event.target.tagName)
 
     if (event.target.tagName === "BUTTON"  || event.target.tagName=="IMG") {
+        let buttonTarget = event.target;
 
-        if (event.target.value === "Clear"  || event.target.tagName=="IMG") {
-            console.log(10)
+        if (buttonTarget.value === "Clear"  || buttonTarget.tagName=="IMG") {
             display.innerHTML = '0'
+            display.value= ''
             currentInput = '';
             operator = '';
             previousInput = '';
         } else {
-            display.value += event.target.value;
-            display.innerHTML = display.value
+            if (['+', '-', '*', '/'].includes(buttonTarget.value)) {
+                    operator = buttonTarget.value;
+                    console.log("operator " + operator)
+                } else{
+                    
+                }
+                display.value += buttonTarget.value;
+                display.innerHTML = display.value;
+                console.log(display.value)
         }
-        if (event.target.value === "="){
-
-        }
+        
+        // if (['+', '-', '*', '/'].includes(buttonTarget.value)) {
+        //     operator = buttonTarget.value;
+        //     console.log("operator " + operator)
+        //     display.value +=buttonTarget.
+        // }
+        // if (buttonTarget.value == "="){
+        //     if(currentInput && previousInput && operator)
+        // }
+        
 
 
     }
